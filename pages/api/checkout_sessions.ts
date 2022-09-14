@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { redirect } from "next/dist/server/api-utils";
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -13,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //aqui eu pego o preço de cada item a partir de suas ID's
     const itemsPrices = await Promise.all(
       itemsIDs.map( //aqui eu retorno uma array de promessas onde cada promessa vai me retornar o objeto price do produto desejado
-        async el => {
+        async (el:string) => {
           //primeiro eu procuro quais objetos price tem como produto o produto com o ID desejado
           let item = await stripe.prices.search({
             query: `product: "${el}"`
@@ -24,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       )
     ).then(res => res.map(el => el.id));
 
-    const lineItems = itemsQuantity.map((el, index) => {
+    const lineItems = itemsQuantity.map((el:number, index:number) => {
       return {
         price: itemsPrices[index],
         quantity: el,

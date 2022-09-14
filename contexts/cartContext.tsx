@@ -1,11 +1,7 @@
 import Router from "next/router";
 import { createContext, useState, PropsWithChildren } from "react";
 
-export const CartContext = createContext({});
-
-
-
-class Product {
+export class Product {
     id: string;
     name: string;
     value: string;
@@ -20,6 +16,13 @@ class Product {
         this.quantity = quantity
     }
 }
+
+export const CartContext = createContext({
+    products: [{} as Product],
+    addItemToCart: (ev:MouseEvent) => {},
+    checkout: () => {}
+});
+
 
 export default function CartContextProvider({ children }: PropsWithChildren) {
     const [state, setState] = useState<{ products: Product[] }>({
@@ -82,7 +85,7 @@ export default function CartContextProvider({ children }: PropsWithChildren) {
     }
 
     function removeItemFromCart(ev: MouseEvent) {
-        
+
     }
 
     async function checkout() {
@@ -92,8 +95,6 @@ export default function CartContextProvider({ children }: PropsWithChildren) {
             method: 'POST',
             body: jsonData
         }).then(res => console.log(res))
-
-        
     }
 
     return (

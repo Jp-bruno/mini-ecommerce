@@ -29,7 +29,7 @@ export default function ProductsSection() {
                     state.items.length === 0 ? 
                     <p>carregando...</p>
                     :
-                    state.items.map(el =>
+                    state.items.map((el:{name:string, images:string[], value:string, id:string}) =>
                         <li key={Math.random() * 1000}>
                             <ProductIcon name={el.name} imgsrc={el.images[0]} value={el.value} id={el.id} />
                         </li>
