@@ -41,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       res.redirect(303, session.url);
     } catch (err) {
-      res.status(err.statusCode || 500).json(err.message);
+      res.status((err as any).statusCode || 500).json((err as any).message);
     }
   } else {
     res.setHeader('Allow', 'POST');
