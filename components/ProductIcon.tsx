@@ -22,10 +22,10 @@ const Wrapper = styled.div`
 `;
 
 type ProductIconProps = {
-    name: '',
-    imgsrc: '',
-    value: '',
-    id: ''
+    name: string,
+    imgsrc: string,
+    value: string,
+    id: string
 }
 
 export default function ProductIcon({name, imgsrc, value, id}: ProductIconProps) {
