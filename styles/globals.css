@@ -11,6 +11,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,6 +24,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
