@@ -1,5 +1,5 @@
 import Router from "next/router";
-import { createContext, useState, PropsWithChildren } from "react";
+import { createContext, useState, PropsWithChildren, MouseEventHandler } from "react";
 
 export class Product {
     id: string;
@@ -19,7 +19,7 @@ export class Product {
 
 export const CartContext = createContext({
     products: [{} as Product],
-    addItemToCart: (ev:MouseEvent) => {},
+    addItemToCart: (ev:any) => {},
     checkout: () => {}
 });
 
@@ -29,7 +29,7 @@ export default function CartContextProvider({ children }: PropsWithChildren) {
         products: []
     })
 
-    function addItemToCart(ev: MouseEvent) {
+    function addItemToCart(ev:any) {
         const parent = (ev.target as HTMLButtonElement).parentElement;
 
         const id = parent?.getAttribute('data-id') as string

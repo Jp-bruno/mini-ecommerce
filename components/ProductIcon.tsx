@@ -19,10 +19,18 @@ const Wrapper = styled.div`
             cursor: pointer;
         }
     }
-`
+`;
 
-export default function ProductIcon({name, imgsrc, value, id}) {
-    const cartContext = useContext(CartContext)
+type ProductIconProps = {
+    name: '',
+    imgsrc: '',
+    value: '',
+    id: ''
+}
+
+export default function ProductIcon({name, imgsrc, value, id}: ProductIconProps) {
+    const cartContext = useContext(CartContext);
+    
     return (
         <Wrapper>
             <Image layout='intrinsic' width={100} height={100} src={imgsrc} alt='produto'></Image>
