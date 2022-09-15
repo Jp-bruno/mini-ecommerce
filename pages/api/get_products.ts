@@ -3,8 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next"
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
-    const items = await stripe.products.list().then(res => res.data)
-    const prices = await stripe.prices.list().then(res => res.data)
+    const items = await stripe.products.list().then(res:any => res.data)
+    const prices = await stripe.prices.list().then(res:any => res.data)
 
     let result = items.map((el, index) => {
         let v = Array.from(prices[index].unit_amount_decimal);
