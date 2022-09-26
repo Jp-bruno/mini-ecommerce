@@ -1,26 +1,24 @@
-import Link from "next/link";
-import Cart from "./Cart";
 import styled from 'styled-components';
+import CartIcon from './CartButton';
+import Logo from "./Logo";
 
 const StyledHeader = styled.header`
-    border: solid 1px red;
     display: flex;
-
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0px 2px 20px rgba(0,0,0,0.3);
+    height: 120px;
+    
     .header-inner-div {
-        border: solid 1px red;
         display: flex;
-        justify-content: space-between;
         width: 100%;
         position: relative;
-
-        nav ul {
-            border: solid 1px red;
-            display: flex;
-            
-            li {
-                padding: 10px;
-            }
-        }
+        padding-inline: 70px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        align-items: center;
+        justify-content: flex-end;
     }
 `
 
@@ -29,19 +27,9 @@ export default function Header() {
     return (
         <StyledHeader>
             <div className='header-inner-div'>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link href='/'>Início</Link>
-                        </li>
-
-                        <li>
-                            <Link href='/products'>Produtos</Link>
-                        </li>
-                    </ul>
-                </nav>
-
-                <Cart />
+                <Logo />
+                <CartIcon />
+                {/* <Nav /> */}
             </div>
         </StyledHeader>
     )

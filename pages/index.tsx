@@ -1,14 +1,28 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import Link from 'next/link';
+import styled from 'styled-components';
+import ProductsSection from '../components/ProductsSection';
+
+const Styled = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 200px;
+  padding-bottom: 170px;
+  padding-inline: 70px;
+  background-color: white;
+
+  h1 {
+    color: black;
+  }
+`;
+
+
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-
-    </div>
+    <Styled>
+      {/* <h1>Loja</h1> */}
+      <ProductsSection />
+    </Styled>
   )
 }
 

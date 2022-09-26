@@ -3,13 +3,15 @@ import { useEffect, useState } from "react"
 import ProductIcon from "../components/ProductIcon";
 
 const StyledSection = styled.section`
-border: solid 5px green;
+    padding: 50px;
+    box-shadow: inset 10px 0px 40px rgba(0,0,0,0.1);
 
     ul {
         width: 100%;
         display: flex;
-        
-    }
+        column-gap: 20px;
+        margin: 0;
+    }   
 `;
 
 export default function ProductsSection() {

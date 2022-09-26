@@ -1,5 +1,4 @@
-import Router from "next/router";
-import { createContext, useState, PropsWithChildren, MouseEventHandler } from "react";
+import { createContext, useState, PropsWithChildren, useRef, MutableRefObject } from "react";
 
 export class Product {
     id: string;

@@ -4,19 +4,28 @@ import CartItem from "./CartItem";
 import styled from 'styled-components';
 
 const StyledCart = styled.div`
-    border: solid 1px red;
     position: absolute;
-    right: 0;
     background: white;
     color: black;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    bottom: -60px;
+    border: solid 1px red;
+    width: 30%;
 
+    &:hover {
+        background-color: black;
+        color: white;
+    }
 `;
 
 function RenderCartItems() {
     const cartContext = useContext(CartContext);
 
     return cartContext.products.length === 0 ?
-        <p>O carrinho está vazio</p>
+        <p>Carrinho vazio</p>
         :
         <>
             <ul>
@@ -45,8 +54,6 @@ function RenderCartItems() {
 export default function Cart() {
     return (
         <StyledCart>
-            <strong>Carrinho</strong>
-
             <RenderCartItems />
         </StyledCart>
     )

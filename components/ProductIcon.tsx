@@ -2,21 +2,54 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { useContext } from 'react';
 import { CartContext } from '../contexts/cartContext';
+import Link from 'next/link';
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    border: solid 1px red;
-    width: fit-content;
-    position: relative;
     text-align: center;
+    padding: 10px 10px 10px 10px;
+    color: black;
+    border: solid 1px black;
+
+    img[alt='produto'] {
+        border: solid 1px black !important;
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        border-inline: solid 1px black;
+        margin-bottom: 10px;
+
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 
     .product-icon-buttons {
         display: flex;
         flex-direction: column;
+        row-gap: 10px;
 
         button {
+            padding: 10px;
+            border: solid 2px black;
             cursor: pointer;
+            background-color: white;
+            width: 100%;
+            color: black;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+
+            &:hover {
+                background-color: black;
+                color: white;
+                border-color: white;
+            }
         }
     }
 `;
@@ -28,14 +61,18 @@ type ProductIconProps = {
     id: string
 }
 
-export default function ProductIcon({name, imgsrc, value, id}: ProductIconProps) {
+export default function ProductIcon({ name, imgsrc, value, id }: ProductIconProps) {
     const cartContext = useContext(CartContext);
-    
+
     return (
         <Wrapper>
-            <Image layout='intrinsic' width={100} height={100} src={imgsrc} alt='produto'></Image>
-            <strong>{name}</strong>
-            <span>R$ {value}</span>
+            <Image layout='fixed' width={'200%'} height={'200%'} src={imgsrc} alt='produto' />
+
+            <div className='product-info'>
+                <Link href='/'>{name}</Link>
+                R$ {value}
+            </div>
+
             <div className='product-icon-buttons' data-id={id} data-name={name} data-value={value} data-image={imgsrc}>
                 <button onClick={cartContext.addItemToCart}>Adicionar ao Carrinho</button>
                 <button>Comprar agora</button>
