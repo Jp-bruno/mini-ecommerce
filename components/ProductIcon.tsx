@@ -64,6 +64,12 @@ type ProductIconProps = {
 export default function ProductIcon({ name, imgsrc, value, id }: ProductIconProps) {
     const cartContext = useContext(CartContext);
 
+    async function test() {
+        const data = await fetch('/api/user/getUser', { method: 'GET' }).then(res => res)
+
+        console.log(data)
+    }
+
     return (
         <Wrapper>
             <Image layout='fixed' width={'200%'} height={'200%'} src={imgsrc} alt='produto' />
@@ -75,7 +81,7 @@ export default function ProductIcon({ name, imgsrc, value, id }: ProductIconProp
 
             <div className='product-icon-buttons' data-id={id} data-name={name} data-value={value} data-image={imgsrc}>
                 <button onClick={cartContext.addItemToCart}>Adicionar ao Carrinho</button>
-                <button>Comprar agora</button>
+                <button onClick={test}>Comprar agora</button>
             </div>
         </Wrapper>
     )
