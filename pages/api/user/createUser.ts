@@ -18,6 +18,6 @@ export default async function createUser(req: NextApiRequest, res: NextApiRespon
 
         // console.log('hi')
     } catch(error) {
-        res.status(400).send(error)
+        res.send(error)
     }
 }

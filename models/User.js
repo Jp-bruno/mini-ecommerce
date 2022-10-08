@@ -10,7 +10,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Email required."],
         maxlenght: [40],
-
     },
     password: {
         type: String,
@@ -19,4 +18,4 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.models.Note || mongoose.model("User", UserSchema);
+module.exports = mongoose.models.User || mongoose.model("User", UserSchema);
