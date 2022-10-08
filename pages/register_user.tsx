@@ -21,20 +21,20 @@ export default function Register() {
             <form onSubmit={handleSubmit(handleRegister)}>
                 <label>
                     Nome:
-                    <input type='text' required autoComplete='on' {...register('name')}></input>
+                    <input type='text' required {...register('name')}></input>
                 </label>
 
                 <label>
                     Email:
-                    <input type='email' required autoComplete='on' {...register('email')}></input>
+                    <input type='email' required {...register('email')}></input>
                 </label>
 
                 <label>
                     Senha:
-                    <input type='password' required autoComplete='on' {...register('password')}></input>
+                    <input type='password' required {...register('password')}></input>
                 </label>
 
-                <button type='submit'>Entrar</button>
+                <button type='submit'>Cadastrar</button>
             </form>
         </StyledWrapper>
     )

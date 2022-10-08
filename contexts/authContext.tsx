@@ -59,8 +59,8 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
 
     async function register(credentials: any) {
         let stringBody = JSON.stringify(credentials)
-        const data = await fetch('/api/user/createUser', { method: 'POST', body: stringBody }).then(res => res)
-        console.log(data)
+        let data = await fetch('/api/user/createUser', { method: 'POST', body: stringBody }).then(res => console.log(res))
+        return data
     }
 
 
